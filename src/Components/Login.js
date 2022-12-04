@@ -3,8 +3,10 @@ import { mobile } from './Responsive'
 
 const Container = styled.div`
 display: flex;
-margin: 15px 15px;
+height: 100vh;
+width: 100vw;
 justify-content: space-between;
+
 ${mobile({
     display: 'flex',
     flexDirection: 'column'
@@ -27,9 +29,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-padding: 10px;
-background-color: teal;
-border-radius: 100px;
+background-color: #eee;
+height: 100%;
+width: 100%;
 `
 const Heading = styled.div`
 display: flex;
@@ -55,9 +57,10 @@ align-items: center;
 justify-content: center;
 `
 const IconImage = styled.img`
-width: 90%;
-height: 90%;
+width:100%;
+height: 100%;
 border-radius: 50%;
+object-fit: cover;
 `
 const Form = styled.form`
 display: flex;
@@ -106,7 +109,7 @@ const Login = () => {
             <RightWrapper>
                 <Heading>
                     <Icon>
-                        <IconImage src="https://www.pngitem.com/pimgs/m/80-800194_transparent-users-icon-png-flat-user-icon-png.png" />
+                        <IconImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyD3SI8Qdekp6twYtnVVcpKfHw7WVQGy9Yfd32EiXPZI30cEgXJ-XhquB0ObTnutlwQrM&usqp=CAU" />
                     </Icon>
                     <Title>WELCOME</Title>
                 </Heading>
@@ -115,7 +118,6 @@ const Login = () => {
                     <Input placeholder="Password" />
                     <Button>SIGN IN</Button>
                 </Form>
-                <Link>DO NOT REMEMBER THE PASSWORD</Link>
                 <Link>CREATE ACCOUNT</Link>
             </RightWrapper>
         </Container>
