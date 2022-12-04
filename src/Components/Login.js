@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 display: flex;
@@ -85,7 +86,7 @@ border-radius: 8px;
     border: 1px solid blue;
 }
 `
-const Link = styled.a`
+const FooterLink = styled.div`
 font-weight: 600;
 margin: 5px;
 color: blue;
@@ -142,7 +143,7 @@ const Login = () => {
                 </Form>
                 <FooterSection>
                     <text>Don't have an account?</text>
-                    <Link>SIGNUP HERE?</Link>
+                    <FooterLink><Link to='/register'>SIGNUP HERE?</Link></FooterLink>
                 </FooterSection>
             </RightWrapper>
         </Container>

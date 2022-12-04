@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 display: flex;
@@ -85,7 +86,7 @@ border-radius: 8px;
     border: 1px solid blue;
 }
 `
-const Link = styled.a`
+const FooterLink = styled.a`
 font-weight: 600;
 margin: 5px;
 color: blue;
@@ -127,7 +128,7 @@ const Registration = () => {
             </LeftWrapper>
             <RightWrapper>
                 <Heading>
-                    <Title>Log In Form</Title>
+                    <Title>SignUp Form</Title>
                 </Heading>
                 <Form onSubmit={handleSubmit}>
                     <Input type="email" placeholder="Write First Name" value={firstname} name="firstname" onChange={handleOnClick} />
@@ -139,7 +140,7 @@ const Registration = () => {
                 </Form>
                 <FooterSection>
                     <text>Already have an account?</text>
-                    <Link>LOGIN HERE!</Link>
+                    <FooterLink><Link to='/login'>LOGIN HERE!</Link></FooterLink>
                 </FooterSection>
             </RightWrapper>
         </Container>
