@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import IconImg from '../Picture/LogInIconImage/iconImage.png'
-import { mobile } from '../Responsive'
+import { mobile } from './Responsive'
 
 const Container = styled.div`
 display: flex;
@@ -48,7 +47,6 @@ const Icon = styled.div`
 width: 150px;
 height: 150px;
 border-radius: 50%;
-background-color: white;
 color: blue;
 font-size: 40px;
 margin: 20px;
@@ -59,6 +57,7 @@ justify-content: center;
 const IconImage = styled.img`
 width: 90%;
 height: 90%;
+border-radius: 50%;
 `
 const Form = styled.form`
 display: flex;
@@ -107,7 +106,7 @@ const Login = () => {
             <RightWrapper>
                 <Heading>
                     <Icon>
-                        <IconImage src={IconImg} />
+                        <IconImage src="https://www.pngitem.com/pimgs/m/80-800194_transparent-users-icon-png-flat-user-icon-png.png" />
                     </Icon>
                     <Title>WELCOME</Title>
                 </Heading>
