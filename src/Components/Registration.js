@@ -111,10 +111,13 @@ const Registration = () => {
         setData({ ...data, [event.target.name]: event.target.value })
     }
 
-    const handleSubmit = (event) => {
+    const handleChange = (event) => {
         event.preventDefault();
         const user = {
+            firstname: firstname,
+            lastname: lastname,
             email: email,
+            phoneNo: phoneNo,
             password: password
         }
         console.log(user)
@@ -130,13 +133,13 @@ const Registration = () => {
                 <Heading>
                     <Title>SignUp Form</Title>
                 </Heading>
-                <Form onSubmit={handleSubmit}>
-                    <Input type="email" placeholder="Write First Name" value={firstname} name="firstname" onChange={handleOnClick} />
+                <Form >
+                    <Input type="text" placeholder="Write First Name" value={firstname} name="firstname" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Last Name" value={lastname} name="lastname" onChange={handleOnClick} />
                     <Input type="email" placeholder="Write Email" value={email} name="email" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Phone No." value={phoneNo} name="phoneNo" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Password" value={password} name="password" onChange={handleOnClick} />
-                    <Button type='submit'>Next step</Button>
+                    <Button type='submit' onClick={handleChange}>Next step</Button>
                 </Form>
                 <FooterSection>
                     <text>Already have an account?</text>

@@ -117,7 +117,7 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleChange = (event) => {
         event.preventDefault();
         const user = {
             email: email,
@@ -136,10 +136,10 @@ const Login = () => {
                 <Heading>
                     <Title>Log In Form</Title>
                 </Heading>
-                <Form onSubmit={handleSubmit}>
+                <Form>
                     <Input type="email" placeholder="Write Email Address" value={email} name="email" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Password" value={password} name="password" onChange={handleOnClick} />
-                    <Button type='submit'>Log In</Button>
+                    <Button type='submit' onClick={handleChange}>Log In</Button>
                 </Form>
                 <FooterSection>
                     <text>Don't have an account?</text>
