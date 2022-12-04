@@ -20,8 +20,8 @@ flex-direction: column;
 background-repeat: no-repeat;
 `
 const LogoImage = styled.img`
-height: 50px;
-width: 100px;
+height: 10%;
+width: 30%;
 `
 const Image = styled.img`
 display:flex;
@@ -82,6 +82,7 @@ border-radius: 8px;
 &:hover{
     background-color: white;
     color: blue;
+    border: 1px solid blue;
 }
 `
 const Link = styled.a`
@@ -141,7 +142,7 @@ const Login = () => {
                 </Form>
                 <FooterSection>
                     <text>Don't have an account?</text>
-                    <Link>CREATE ACCOUNT</Link>
+                    <Link>SIGNUP HERE?</Link>
                 </FooterSection>
             </RightWrapper>
         </Container>

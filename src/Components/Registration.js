@@ -16,11 +16,17 @@ ${mobile({
 const LeftWrapper = styled.div`
 flex: 1;
 display:flex;
-justify-content: center;
-align-items: center;
+flex-direction: column;
 background-repeat: no-repeat;
 `
+const LogoImage = styled.img`
+height: 10%;
+width: 30%;
+`
 const Image = styled.img`
+display:flex;
+justify-content: center;
+align-items: center;
 width: 100%;
 height: 100%;
 `
@@ -46,23 +52,7 @@ ${mobile({
     fontSize: '20px'
 })}
 `
-const Icon = styled.div`
-width: 150px;
-height: 150px;
-border-radius: 50%;
-color: blue;
-font-size: 40px;
-margin: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-`
-const IconImage = styled.img`
-width:100%;
-height: 100%;
-border-radius: 50%;
-object-fit: cover;
-`
+
 const Form = styled.form`
 display: flex;
 flex-direction: column;
@@ -81,31 +71,41 @@ ${mobile({
 `
 const Button = styled.button`
 margin: 10px;
-padding: 15px 20px;
+padding: 15px 30px;
 font-weight: 600;
 border: none;
 border-radius: 5px;
-background-color: lightgrey;
+color: white;
+background-color: blue;
+border-radius: 8px;
 
 &:hover{
     background-color: white;
-    color: black;
+    color: blue;
+    border: 1px solid blue;
 }
 `
 const Link = styled.a`
-font-weight: 400;
+font-weight: 600;
 margin: 5px;
+color: blue;
 cursor: pointer;
 
 &:hover{
     text-decoration: underline;
 }
 `
+const FooterSection = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+`
 
 
 const Registration = () => {
-    const [data, setData] = useState({ firstname: '', lastname: '', email: '', phoneNumber: '', password: '' });
-    const { firstname, lastname, email, phoneNumber, password } = data;
+    const [data, setData] = useState({ firstname: '', lastname: '', email: '', phoneNo: '', password: '' });
+    const { firstname, lastname, email, phoneNo, password } = data;
     const handleOnClick = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
     }
@@ -122,27 +122,28 @@ const Registration = () => {
     return (
         <Container>
             <LeftWrapper>
+                <LogoImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK9j3f8AIQH8gl6jXgjOTKDZNiyHdpKuxL8Q&usqp=CAU" />
                 <Image src="https://t4.ftcdn.net/jpg/04/28/75/97/360_F_428759715_jsOPITlaytE3QXc2yI1D4U6uwZdVGkRp.jpg" />
             </LeftWrapper>
             <RightWrapper>
                 <Heading>
-                    <Icon>
-                        <IconImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyD3SI8Qdekp6twYtnVVcpKfHw7WVQGy9Yfd32EiXPZI30cEgXJ-XhquB0ObTnutlwQrM&usqp=CAU" />
-                    </Icon>
-                    <Title>WELCOME</Title>
+                    <Title>Log In Form</Title>
                 </Heading>
                 <Form onSubmit={handleSubmit}>
-                    <Input type="text" placeholder="Firstname" value={firstname} name="firstname" onChange={handleOnClick} />
-                    <Input type="text" placeholder="Lastnem" value={lastname} name="lastname" onChange={handleOnClick} />
-                    <Input type="email" placeholder="Email" value={email} name="email" onChange={handleOnClick} />
-                    <Input type="number" placeholder="Phone No." value={phoneNumber} name="phoneNumber" onChange={handleOnClick} />
-                    <Input type="text" placeholder="Password" value={password} name="password" onChange={handleOnClick} />
-                    <Button type='submit'>REGISTER</Button>
+                    <Input type="email" placeholder="Write First Name" value={firstname} name="firstname" onChange={handleOnClick} />
+                    <Input type="text" placeholder="Write Last Name" value={lastname} name="lastname" onChange={handleOnClick} />
+                    <Input type="email" placeholder="Write Email" value={email} name="email" onChange={handleOnClick} />
+                    <Input type="text" placeholder="Write Phone No." value={phoneNo} name="phoneNo" onChange={handleOnClick} />
+                    <Input type="text" placeholder="Write Password" value={password} name="password" onChange={handleOnClick} />
+                    <Button type='submit'>Next step</Button>
                 </Form>
-                <Link>CREATE ACCOUNT</Link>
+                <FooterSection>
+                    <text>Already have an account?</text>
+                    <Link>LOGIN HERE!</Link>
+                </FooterSection>
             </RightWrapper>
         </Container>
     )
 }
 
-export default Registration
+export default Registration;
