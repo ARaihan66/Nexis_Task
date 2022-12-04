@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
 
@@ -84,9 +85,11 @@ padding: 15px 20px;
 font-weight: 600;
 border: none;
 border-radius: 5px;
+background-color: lightgrey;
 
 &:hover{
-    background-color: lightgrey;
+    background-color: white;
+    color: black;
 }
 `
 const Link = styled.a`
@@ -101,6 +104,17 @@ cursor: pointer;
 
 
 const Login = () => {
+    const [data, setData] = useState({ email: '', password: '' });
+    const { email, password } = data;
+    const handleOnClick = (event) => {
+        if (event.target.name === "email") {
+            setData({ email: event.target.value, password })
+        }
+
+        if (event.target.name === "password") {
+            setData({ email, password: event.target.value })
+        }
+    }
     return (
         <Container>
             <LeftWrapper>
@@ -114,8 +128,8 @@ const Login = () => {
                     <Title>WELCOME</Title>
                 </Heading>
                 <Form>
-                    <Input placeholder="Email" />
-                    <Input placeholder="Password" />
+                    <Input placeholder="Email" name="email" value={email} onClick={handleOnClick} />
+                    <Input placeholder="Password" name="password" value={password} onClick={handleOnClick} />
                     <Button>SIGN IN</Button>
                 </Form>
                 <Link>CREATE ACCOUNT</Link>
