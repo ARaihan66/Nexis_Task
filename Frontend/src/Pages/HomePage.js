@@ -1,10 +1,9 @@
 import React from 'react'
-import Registration from '../Components/Registration'
 
 const HomePage = () => {
     return (
         <div>
-            <Registration />
+            <h1>Welcome to Nexis home page</h1>
         </div>
     )
 }

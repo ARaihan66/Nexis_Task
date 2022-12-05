@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
 display: flex;
@@ -105,6 +105,7 @@ justify-content: center;
 
 
 const Login = () => {
+    const navigate = useNavigate()
     const [data, setData] = useState({ email: '', password: '' });
     const { email, password } = data;
     const handleOnClick = (event) => {
@@ -117,13 +118,27 @@ const Login = () => {
         }
     }
 
-    const handleChange = (event) => {
+    const handleClick = async (event) => {
         event.preventDefault();
-        const user = {
-            email: email,
-            password: password
+        const res = await fetch("/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+
+        const data = await res.json();
+
+        if (!data) {
+            window.alert("Registration Failed")
+        } else {
+            window.alert("Registration Successful")
+            navigate("/homepage");
         }
-        console.log(user)
     }
 
     return (
@@ -139,7 +154,7 @@ const Login = () => {
                 <Form>
                     <Input type="email" placeholder="Write Email Address" value={email} name="email" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Password" value={password} name="password" onChange={handleOnClick} />
-                    <Button type='submit' onClick={handleChange}>Log In</Button>
+                    <Button type='submit' onClick={handleClick}>Log In</Button>
                 </Form>
                 <FooterSection>
                     <text>Don't have an account?</text>
