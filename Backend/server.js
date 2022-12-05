@@ -1,9 +1,6 @@
-const express = require('express');
+const app = require('./app');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const app = require('./app');
-
-app.use(express.json());
 
 dotenv.config({
     path: '/Backend/config/.env'
@@ -21,6 +18,6 @@ mongoose.connect(process.env.DB_URL, {
     })
 
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 7000, () => {
     console.log("Server connection done")
 })

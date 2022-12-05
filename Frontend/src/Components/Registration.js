@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from './Responsive'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
 display: flex;
@@ -105,22 +105,37 @@ justify-content: center;
 
 
 const Registration = () => {
+    const navigate = useNavigate();
     const [data, setData] = useState({ firstname: '', lastname: '', email: '', phoneNo: '', password: '' });
     const { firstname, lastname, email, phoneNo, password } = data;
     const handleOnClick = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
     }
 
-    const handleChange = (event) => {
+    const handleClick = async (event) => {
         event.preventDefault();
-        const user = {
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
-            phoneNo: phoneNo,
-            password: password
+        const res = await fetch("/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                phoneNo: phoneNo,
+                password: password
+            })
+        })
+
+        const data = await res.json();
+
+        if (!data) {
+            window.alert("Registration Failed")
+        } else {
+            window.alert("Registration Successful")
+            navigate("/login");
         }
-        console.log(user)
     }
 
     return (
@@ -139,7 +154,7 @@ const Registration = () => {
                     <Input type="email" placeholder="Write Email" value={email} name="email" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Phone No." value={phoneNo} name="phoneNo" onChange={handleOnClick} />
                     <Input type="text" placeholder="Write Password" value={password} name="password" onChange={handleOnClick} />
-                    <Button type='submit' onClick={handleChange}>Next step</Button>
+                    <Button type='submit' onClick={handleClick}>Next step</Button>
                 </Form>
                 <FooterSection>
                     <text>Already have an account?</text>
