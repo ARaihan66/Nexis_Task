@@ -1,7 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const app = express();
+const app = require('./app');
+
+app.use(express.json());
 
 dotenv.config({
     path: '/Backend/config/.env'
