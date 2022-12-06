@@ -1,19 +1,19 @@
 {
-  "name": "nexis_task",
+  "name": "nexis_ltd",
   "version": "1.0.0",
   "description": "",
-  "main": "Backend/server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon Backend/server.js"
+    "server": "nodemon server.js"
   },
-  "author": "Abu Raihan Shakil",
+  "author": "Md. Abu Raihan",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.5"
+    "mongoose": "^6.8.0"
   }
 }

@@ -1,11 +1,7 @@
 const app = require('./app');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-
-dotenv.config({
-    path: '/Backend/config/.env'
-});
-
+require('dotenv').config()
 
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
@@ -14,7 +10,7 @@ mongoose.connect(process.env.DB_URL, {
     .then((data) => {
         console.log('Database Connected Successfully!!!')
     }).catch((error) => {
-        console.log('Connection Failed!!!')
+        console.log(error.message)
     })
 
 
